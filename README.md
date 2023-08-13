@@ -21,6 +21,9 @@ npm install nextjs-router-events
 # Caveats
 What this package does, is basically attach `click` event listeners to all `a` nodes in the DOM, and from there handle the necessary logic for the route change events. As it is, the package will be treating **all** `a` node clicks as events of navigation, whether it is an anchor link, an external link or an internal link. It also does not check what the `a` node `target` attribute is, so route change events will be triggered for `target="_blank"` as well (except `routeChangeEnd`). As such, you should be keeping that in mind when using this package with things like `nprogress`.
 
+This package also only handles `router.push`, so all other `router` methods such as `back`, `forward`, `refresh` and etc are not covered.
+I do plan on covering more `router` methods where it is possible to do so, as well as offering some sort of opt-out for the `a` nodes in the DOM, however at the moment it is what it is.
+
 # Setup
 The package exports `RouteChangesProvider`, use it inside your `layout` like so
 ```typescript
@@ -67,7 +70,7 @@ Define a `useLeaveConfirmation` hook like this
 ```typescript
 import { useCallback, useState } from "react"
 import { useRouteChangeEvents } from "nextjs-router-events"
-import useBeforeUnload from './useBeforeUnload' // read furter for an explanation
+import useBeforeUnload from './useBeforeUnload' // read further for an explanation
 import { 
   AlertDialog, 
   AlertDialogCancel, 
