@@ -1,0 +1,45 @@
+{
+  "name": "nextjs-router-events",
+  "version": "0.0.1",
+  "description": "A router events alternative for Next.js 13+ with app directory with the ability to prevent user navigation.",
+  "author": "run4w4y <add4che@gmail.com>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "npm run lint -- --fix",
+    "release": "standard-version --no-verify",
+    "build": "rm -rf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/run4w4y/nextjs-router-events"
+  },
+  "bugs": {
+    "url": "https://github.com/run4w4y/nextjs-router-events/issues"
+  },
+  "keywords": [
+    "next",
+    "nextjs",
+    "router events",
+    "navigation"
+  ],
+  "dependencies": {
+    "next": "^13.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.20",
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.0.4"
+  },
+  "license": "MIT"
+}

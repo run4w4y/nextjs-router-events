@@ -1,0 +1,7 @@
+.editorconfig
+.eslintrc.js
+.eslintignore
+prettier.config.js
+src
+tsconfig.json
+dist/tsconfig.tsbuildinfo
