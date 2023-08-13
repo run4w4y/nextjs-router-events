@@ -49,8 +49,6 @@ import { useRouter } from 'nextjs-router-events'
 
 If you find it tedious to go through your imports, you could probably use `resolve.alias` in your webpack configuration to just alias `next/navigation` to something that re-exports all of its contents, except for the `useRouter` and instead exports the one from this package.
 
-With that the setup is done, you do not have to do anything else like replacing 
-
 # API
 
 Aside from the `useRouter` (which has the exact same API as the one from `next/navigation`) and `RouteChangesProvider` (whose only prop is `children`), the package exports `useRouteChangeEvents` hook. 
