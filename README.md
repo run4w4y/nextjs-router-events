@@ -107,7 +107,7 @@ const useLeaveConfirmation = (shouldPreventRouteChange: boolean) => {
               You have unsaved changes
             </AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure, you want to leave? 
+              Are you sure you want to leave? 
               All the unsaved changes will be lost.
             </AlertDialogDescription>
           </AlertDialogHeader>
