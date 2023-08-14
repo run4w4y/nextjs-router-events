@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
 import { useRouter as usePrimitiveRouter } from 'next/navigation'
 import { triggerBeforeRouteChangeEvent, triggerRouteChangeStartEvent } from './events'

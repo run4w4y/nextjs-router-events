@@ -1,6 +1,6 @@
 {
   "name": "nextjs-router-events",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A router events alternative for Next.js 13+ with app directory with the ability to prevent user navigation.",
   "author": "run4w4y <add4che@gmail.com>",
   "main": "dist/index.js",

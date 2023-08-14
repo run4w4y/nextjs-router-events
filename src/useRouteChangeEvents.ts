@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useId, useState } from 'react'
 import { useFreezeRequestsContext } from './context'
 import { type HistoryURL, triggerRouteChangeConfirmationEvent } from './events'
