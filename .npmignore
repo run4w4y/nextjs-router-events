@@ -2,6 +2,6 @@
 .eslintrc.js
 .eslintignore
 prettier.config.js
-# src
+src
 tsconfig.json
 dist/tsconfig.tsbuildinfo
