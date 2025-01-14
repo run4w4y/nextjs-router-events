@@ -3,6 +3,8 @@
 import React, { useContext } from 'react'
 import { noop } from './util'
 
+let requests: string[] = []
+
 interface FreezeRequestsContextValue {
   freezeRequests: string[]
   setFreezeRequests: React.Dispatch<React.SetStateAction<string[]>>
@@ -19,10 +21,12 @@ export const useFreezeRequestsContext = () => {
   return {
     freezeRequests,
     request: (sourceId: string) => {
-      setFreezeRequests([...freezeRequests, sourceId])
+      requests = [...requests, sourceId]
+      setFreezeRequests(requests)
     },
     revoke: (sourceId: string) => {
-      setFreezeRequests(freezeRequests.filter((x) => x !== sourceId))
+      requests = requests.filter((x) => x !== sourceId)
+      setFreezeRequests(requests)
     },
   }
 }
