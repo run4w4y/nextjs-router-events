@@ -5,3 +5,4 @@ prettier.config.js
 src
 tsconfig.json
 dist/tsconfig.tsbuildinfo
+.vscode
