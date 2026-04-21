@@ -1,0 +1,85 @@
+{
+  "name": "example",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/example/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/.next"],
+      "options": {
+        "cwd": "apps/example",
+        "command": "bun x next build"
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "cwd": "apps/example",
+        "command": "sh -c 'PORT=${PORT:-3000}; bun x next dev --hostname 127.0.0.1 --port \"$PORT\"'"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/example",
+        "command": "sh -c 'PORT=${PORT:-3000}; bun x next start --hostname 127.0.0.1 --port \"$PORT\"'"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "{projectRoot}/**/*.ts",
+          "{projectRoot}/**/*.tsx",
+          "{projectRoot}/**/*.js",
+          "{projectRoot}/**/*.jsx",
+          "{projectRoot}/**/*.mjs"
+        ]
+      }
+    },
+    "lint:fix": {
+      "executor": "@nx/eslint:lint",
+      "cache": false,
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "fix": true,
+        "lintFilePatterns": [
+          "{projectRoot}/**/*.ts",
+          "{projectRoot}/**/*.tsx",
+          "{projectRoot}/**/*.js",
+          "{projectRoot}/**/*.jsx",
+          "{projectRoot}/**/*.mjs"
+        ]
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "tsc --pretty --noEmit --project apps/example/tsconfig.json"
+      }
+    },
+    "test:e2e": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node ./node_modules/@playwright/test/cli.js test -c apps/example/playwright.config.ts",
+        "cwd": ".",
+        "color": true
+      },
+      "outputs": []
+    },
+    "test": {
+      "executor": "nx:noop",
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "test:e2e"
+        }
+      ],
+      "outputs": []
+    }
+  }
+}
