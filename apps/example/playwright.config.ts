@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 const defaultPort = process.env['CI'] ? '3100' : '3000'
 const port = Number(process.env['PORT'] ?? defaultPort)
 const projectDir = dirname(fileURLToPath(import.meta.url))
+const browserChannel = process.env['PLAYWRIGHT_BROWSER_CHANNEL']
 const reuseExistingServer = process.env['CI']
   ? false
   : process.env['PLAYWRIGHT_REUSE_EXISTING_SERVER'] !== 'false'
@@ -23,7 +24,10 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        ...(browserChannel ? { channel: browserChannel } : {}),
+      },
     },
   ],
   webServer: {

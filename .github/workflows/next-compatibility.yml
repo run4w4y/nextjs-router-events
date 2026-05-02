@@ -38,11 +38,13 @@ jobs:
       - name: Pin Next.js ${{ matrix.next-version }} in the example app
         run: bun add next@${{ matrix.next-version }} --cwd apps/example --exact
 
-      - name: Install Playwright browsers
-        run: bun x playwright install --with-deps chromium
+      - name: Verify runner Chrome
+        run: google-chrome --version
 
       - name: Build workspace
         run: bun run build
 
       - name: Run example e2e suite
+        env:
+          PLAYWRIGHT_BROWSER_CHANNEL: chrome
         run: NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run example:test:e2e
