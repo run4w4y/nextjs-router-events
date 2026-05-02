@@ -17,6 +17,7 @@
     "test:e2e": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run-many --target test:e2e --all",
     "pack:check": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run nextjs-router-events:pack:check",
     "changeset": "changeset",
+    "version-packages": "changeset version && bun install",
     "release": "changeset publish"
   },
   "engines": {
