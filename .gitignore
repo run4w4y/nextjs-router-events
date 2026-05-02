@@ -9,3 +9,11 @@ node_modules
 build
 dist
 .vscode
+.next
+.nx
+.direnv
+coverage
+playwright-report
+test-results
+.tmp
+**/*.tsbuildinfo

@@ -1,0 +1,72 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "sharedGlobals": [
+      "{workspaceRoot}/bunfig.toml",
+      "{workspaceRoot}/eslint.config.mjs",
+      "{workspaceRoot}/prettier.config.js",
+      "{workspaceRoot}/tsconfig.base.json"
+    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/**/*.test.[jt]s",
+      "!{projectRoot}/**/*.test.[jt]sx",
+      "!{projectRoot}/**/*.spec.[jt]s",
+      "!{projectRoot}/**/*.spec.[jt]sx",
+      "!{projectRoot}/e2e/**/*",
+      "!{projectRoot}/playwright.config.ts",
+      "!{projectRoot}/coverage/**/*",
+      "!{projectRoot}/test-results/**/*"
+    ]
+  },
+  "targetDefaults": {
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "cache": true
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "inputs": ["default", "^default"],
+      "outputs": ["{options.outputFile}"],
+      "cache": true
+    },
+    "lint:fix": {
+      "executor": "@nx/eslint:lint",
+      "inputs": ["default", "^default"],
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "fix": true
+      },
+      "cache": false
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"],
+      "inputs": ["default", "^default"],
+      "cache": true
+    },
+    "test:unit": {
+      "inputs": ["default", "^default"],
+      "cache": true
+    },
+    "test:e2e": {
+      "cache": false
+    },
+    "pack:check": {
+      "cache": false
+    }
+  },
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": false,
+      "analyzePackageJson": true,
+      "analyzeLockfile": true
+    }
+  },
+  "analytics": false
+}

@@ -1,0 +1,29 @@
+{
+  "name": "@nextjs-router-events/example",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js run example:dev",
+    "build": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js run example:build",
+    "start": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js run example:serve",
+    "serve": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js run example:serve",
+    "test:e2e": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js run example:test:e2e"
+  },
+  "dependencies": {
+    "@radix-ui/react-alert-dialog": "1.1.15",
+    "@radix-ui/react-dialog": "1.1.15",
+    "@radix-ui/react-slot": "1.2.4",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "1.8.0",
+    "mobx": "6.15.0",
+    "mobx-keystone": "1.21.0",
+    "mobx-react-lite": "4.1.1",
+    "next": "16.2.4",
+    "nextjs-router-events": "workspace:*",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "tailwind-merge": "3.5.0"
+  }
+}

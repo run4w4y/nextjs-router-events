@@ -1,0 +1,48 @@
+{
+  "name": "nextjs-router-events",
+  "version": "0.0.5",
+  "description": "A router events alternative for Next.js App Router with route change lifecycle hooks and guarded navigation support.",
+  "author": "run4w4y <add4che@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js build nextjs-router-events",
+    "lint": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js lint nextjs-router-events",
+    "test": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js test nextjs-router-events",
+    "typecheck": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js typecheck nextjs-router-events",
+    "pack:check": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ../../node_modules/nx/bin/nx.js run nextjs-router-events:pack:check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/run4w4y/nextjs-router-events"
+  },
+  "bugs": {
+    "url": "https://github.com/run4w4y/nextjs-router-events/issues"
+  },
+  "keywords": [
+    "next",
+    "nextjs",
+    "router events",
+    "navigation"
+  ],
+  "peerDependencies": {
+    "next": "^13 || ^14 || ^15 || ^16",
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  }
+}

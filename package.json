@@ -1,45 +1,57 @@
 {
-  "name": "nextjs-router-events",
-  "version": "0.0.5",
-  "description": "A router events alternative for Next.js 13+ with app directory with the ability to prevent user navigation.",
-  "author": "run4w4y <add4che@gmail.com>",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "lint": "eslint --ignore-path .gitignore .",
-    "lint:fix": "npm run lint -- --fix",
-    "release": "standard-version --no-verify",
-    "build": "rm -rf dist && tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/run4w4y/nextjs-router-events"
-  },
-  "bugs": {
-    "url": "https://github.com/run4w4y/nextjs-router-events/issues"
-  },
-  "keywords": [
-    "next",
-    "nextjs",
-    "router events",
-    "navigation"
+  "name": "@nextjs-router-events/workspace",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "bun@1.3.12",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
   ],
-  "peerDependencies": {
-    "next": "^13 || ^14 || ^15",
-    "react": "^18 || ^19",
-    "react-dom": "^18 || ^19"
+  "scripts": {
+    "build": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run-many --target build --all",
+    "lint": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run-many --target lint --all",
+    "lint:fix": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run-many --target lint:fix --all",
+    "typecheck": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run-many --target typecheck --all",
+    "test": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run-many --target test --all",
+    "test:unit": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run-many --target test:unit --all",
+    "test:e2e": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run-many --target test:e2e --all",
+    "pack:check": "NX_DAEMON=false NX_ISOLATE_PLUGINS=false node ./node_modules/nx/bin/nx.js run nextjs-router-events:pack:check",
+    "changeset": "changeset",
+    "release": "changeset publish"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.20",
-    "@typescript-eslint/eslint-plugin": "5.62.0",
-    "eslint": "^8.36.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-unused-imports": "^2.0.0",
-    "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8",
-    "standard-version": "^9.5.0",
-    "typescript": "^5.0.4"
-  },
-  "license": "MIT"
+    "@changesets/cli": "2.30.0",
+    "@eslint/js": "9.27.0",
+    "@happy-dom/global-registrator": "20.9.0",
+    "@nx/eslint": "22.6.5",
+    "@nx/eslint-plugin": "22.6.5",
+    "@nx/js": "22.6.5",
+    "@nx/workspace": "22.6.5",
+    "@playwright/test": "1.59.1",
+    "@rslib/core": "^0.17.0",
+    "@tailwindcss/postcss": "4.2.2",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "^22.16.5",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@typescript-eslint/eslint-plugin": "8.58.2",
+    "@typescript-eslint/parser": "8.58.2",
+    "bun-types": "1.3.12",
+    "eslint": "9.27.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.5",
+    "globals": "^16.5.0",
+    "happy-dom": "20.9.0",
+    "nx": "22.6.5",
+    "playwright": "1.59.1",
+    "prettier": "3.8.3",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "tailwindcss": "4.2.2",
+    "typescript": "6.0.2"
+  }
 }

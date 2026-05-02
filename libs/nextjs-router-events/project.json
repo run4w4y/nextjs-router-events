@@ -1,0 +1,80 @@
+{
+  "name": "nextjs-router-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nextjs-router-events/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "command": "bunx rslib build --config rslib.config.ts",
+        "cwd": "libs/nextjs-router-events",
+        "color": true
+      }
+    },
+    "test:unit": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun test --preload ../../test/setup.ts --coverage ./src",
+        "cwd": "libs/nextjs-router-events",
+        "color": true
+      },
+      "outputs": ["{projectRoot}/coverage"]
+    },
+    "test": {
+      "executor": "nx:noop",
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "test:unit"
+        }
+      ],
+      "outputs": []
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "{projectRoot}/**/*.ts",
+          "{projectRoot}/**/*.tsx",
+          "{projectRoot}/**/*.js",
+          "{projectRoot}/**/*.jsx",
+          "{projectRoot}/**/*.mjs"
+        ]
+      }
+    },
+    "lint:fix": {
+      "executor": "@nx/eslint:lint",
+      "cache": false,
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "fix": true,
+        "lintFilePatterns": [
+          "{projectRoot}/**/*.ts",
+          "{projectRoot}/**/*.tsx",
+          "{projectRoot}/**/*.js",
+          "{projectRoot}/**/*.jsx",
+          "{projectRoot}/**/*.mjs"
+        ]
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "tsc --pretty --noEmit --project libs/nextjs-router-events/tsconfig.json"
+      }
+    },
+    "pack:check": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "bun run ../../tools/pack-check.ts",
+        "cwd": "libs/nextjs-router-events",
+        "color": true
+      }
+    }
+  }
+}
