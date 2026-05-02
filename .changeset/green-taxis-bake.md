@@ -1,5 +1,5 @@
 ---
-'nextjs-router-events': minor
+'nextjs-router-events': major
 ---
 
-Move `nextjs-router-events` into a Bun-managed Nx workspace, add route lifecycle coverage for push/replace and history navigation, and ship the example app, Bun unit tests, Playwright e2e suite, and GitHub Actions release flow.
+Refactor package code, more coverage for user navigation cases.
