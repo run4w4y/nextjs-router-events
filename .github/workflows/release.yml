@@ -53,7 +53,7 @@ jobs:
       - name: Version or publish
         uses: changesets/action@v1
         with:
-          version: bun x changeset version && bun install
+          version: bun run version-packages
           publish: bun x changeset publish
           commit: 'chore: release packages'
           title: 'chore: release packages'
