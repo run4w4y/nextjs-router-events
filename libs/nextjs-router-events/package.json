@@ -1,6 +1,6 @@
 {
   "name": "nextjs-router-events",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "A router events alternative for Next.js App Router with route change lifecycle hooks and guarded navigation support.",
   "author": "run4w4y <add4che@gmail.com>",
   "license": "MIT",
